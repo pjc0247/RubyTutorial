@@ -62,12 +62,8 @@ void test_array_iterate(){
     rb_ary_push( ary, INT2NUM(2) );
     rb_ary_push( ary, INT2NUM(3) );
     
-    /* rb_block_call(
-     *      obj, method_id,
-     *      argc, argv,
-     *      c_block_func_ptr, context ); */
     rb_block_call(
         ary, fEach,
         0, nullptr,
-        (VALUE(*)(...))array_iteration_block, INT2NUM(3) );
+        (VALUE(*)(...))array_iteration_block, Qnil );
 }
