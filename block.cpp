@@ -38,5 +38,4 @@ void test_block2(){
         INT2NUM(4), fTimes,
         0, nullptr,
         (VALUE(*)(...))func_block, Qnil );
-
 }
