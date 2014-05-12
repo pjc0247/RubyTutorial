@@ -31,3 +31,21 @@ void test_array2(){
     printf("test_array2 %d %d %d\n",
         NUM2INT(v1), NUM2INT(v2), NUM2INT(v3));
 }
+
+void test_array_clear(){
+    VALUE ary = rb_ary_new();
+    ID fSize = rb_intern("size");
+    
+    rb_ary_push( ary, INT2NUM(1) );
+    rb_ary_push( ary, INT2NUM(2) );
+    rb_ary_push( ary, INT2NUM(3) );
+    
+    rb_ary_clear( ary );
+    
+    VALUE size =
+        rb_funcall( ary, fSize, 0 );
+    
+    //=> test_array_clear 0
+    printf("test_array_clear %d\n",
+        NUM2INT(size));
+}
