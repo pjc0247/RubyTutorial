@@ -47,3 +47,12 @@ void test_global(){
     printf("test_global\n");
     rb_eval_string("puts $white");
 }
+void test_global2(){
+    rb_eval_string("$minsoo = 4132");
+    
+    VALUE gMinsoo =
+        rb_gv_get("$minsoo");
+    
+    printf("test_global2 %d\n",
+        NUM2INT(gMinsoo));
+}
