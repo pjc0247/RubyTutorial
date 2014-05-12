@@ -1,13 +1,6 @@
 #include <ruby/ruby.h>
 #include <stdio.h>
 
-void test_global(){
-    VALUE gWhite =
-        rb_gv_set( "$white", INT2NUM(1234) );
-    
-    printf("test_global\n");
-    rb_eval_string("puts $white");
-}
 
 void test_funcall(){
     ID fPuts = rb_intern("puts"); /* id of 'puts' */
