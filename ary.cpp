@@ -49,3 +49,25 @@ void test_array_clear(){
     printf("test_array_clear %d\n",
         NUM2INT(size));
 }
+
+VALUE array_iteration_block(VALUE obj, VALUE context, int argc, VALUE *argv){
+    printf("%d\n", NUM2INT(argv[0]));
+    return Qnil;
+}
+void test_array_iterate(){
+    VALUE ary = rb_ary_new();
+    ID fEach = rb_intern("each");
+    
+    rb_ary_push( ary, INT2NUM(1) );
+    rb_ary_push( ary, INT2NUM(2) );
+    rb_ary_push( ary, INT2NUM(3) );
+    
+    /* rb_block_call(
+     *      obj, method_id,
+     *      argc, argv,
+     *      c_block_func_ptr, context ); */
+    rb_block_call(
+        ary, fEach,
+        0, nullptr,
+        (VALUE(*)(...))array_iteration_block, INT2NUM(3) );
+}
