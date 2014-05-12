@@ -168,3 +168,22 @@ void test_block(){
         "  puts \"1 + 2 = #{v}\"\r\n"
         "end" );
 }
+
+VALUE func_block(VALUE obj, VALUE context, int argc, VALUE *argv){
+    printf("hello world\n");
+    return Qnil;
+}
+void test_block2(){
+    ID fTimes = rb_intern("times");
+    
+    printf("test_block2\n");
+    /* rb_block_call(
+     *      obj, method_id,
+     *      argc, argv,
+     *      c_block_func_ptr, context ); */
+    rb_block_call(
+        INT2NUM(4), fTimes,
+        0, nullptr,
+        (VALUE(*)(...))func_block, Qnil );
+
+}
