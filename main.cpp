@@ -146,3 +146,25 @@ int main(int argc, char **argv){
     ruby_cleanup( 0 );
     return 0;
 }
+
+
+VALUE func_call_block(VALUE self, VALUE a,VALUE b){
+    printf("%d / %d\n", NUM2INT(a), NUM2INT(b));
+    
+    if( rb_block_given_p() ){
+        rb_yield(
+            INT2NUM( NUM2INT(a) + NUM2INT(b) ) );
+    }
+    return Qnil;
+}
+void test_block(){
+    rb_define_method(
+        rb_cObject, "call_block",
+        (VALUE(*)(...))func_call_block, 2 );
+    
+    printf("test_block\n");
+    rb_eval_string(
+        "call_block(1,2) do |v|\r\n"
+        "  puts \"1 + 2 = #{v}\"\r\n"
+        "end" );
+}
