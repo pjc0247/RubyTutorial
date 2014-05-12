@@ -62,6 +62,7 @@ void test_array_iterate(){
     rb_ary_push( ary, INT2NUM(2) );
     rb_ary_push( ary, INT2NUM(3) );
     
+    printf("test_array_iterate\n");
     rb_block_call(
         ary, fEach,
         0, nullptr,
