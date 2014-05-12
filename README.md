@@ -1,5 +1,5 @@
 RubyTutorial
 ============
 
-ruby-c embedding tutorial
+ruby-c embedding/extending tutorial
 
