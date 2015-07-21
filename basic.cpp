@@ -54,5 +54,5 @@ void test_global2(){
         rb_gv_get("$minsoo");
     
     printf("test_global2 %d\n",
-        NUM2INT(gMinsoo));
+        NUM2INT(g_minsoo));
 }
