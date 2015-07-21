@@ -41,7 +41,7 @@ void test_value2(){
 }
 
 void test_global(){
-    VALUE gWhite =
+    VALUE g_white =
         rb_gv_set( "$white", INT2NUM(1234) );
     
     printf("test_global\n");
@@ -50,7 +50,7 @@ void test_global(){
 void test_global2(){
     rb_eval_string("$minsoo = 4132");
     
-    VALUE gMinsoo =
+    VALUE g_minsoo =
         rb_gv_get("$minsoo");
     
     printf("test_global2 %d\n",
